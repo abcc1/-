@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暑期招生计划 | 理科精品辅导</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ===== Reset ===== */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== Variables ===== */
+    :root {
+      --bg: #faf6f0;
+      --surface: #ffffff;
+      --primary: #1a2332;
+      --primary-mid: #2a3f55;
+      --accent: #c08b5c;
+      --accent-light: #e8b88a;
+      --accent-bg: #fdf5ec;
+      --text: #2c2c2c;
+      --text-muted: #6b6b6b;
+      --text-light: #999;
+      --border: #e8e2d8;
+      --shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
+      --radius: 14px;
+      --radius-sm: 8px;
+      --max-w: 680px;
+      --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+      --font-sans: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    }
+
+    /* ===== Base ===== */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* ===== Grain Overlay ===== */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ===== Animations ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in:nth-child(2) {
+      transition-delay: 0.08s;
+    }
+
+    .fade-in:nth-child(3) {
+      transition-delay: 0.16s;
+    }
+
+    .fade-in:nth-child(4) {
+      transition-delay: 0.24s;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      background: linear-gradient(155deg, #0f2027 0%, #1a3545 40%, #2c5364 100%);
+      padding: 80px 24px 72px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      top: -180px;
+      right: -160px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+      bottom: -120px;
+      left: -80px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      border: 1px solid rgba(232, 184, 138, 0.3);
+      padding: 6px 20px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 6px;
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.45);
+      max-width: 360px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ===== Section ===== */
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 32px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* ===== Subject Cards ===== */
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .subject-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 16px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .subject-symbol {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--accent);
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .subject-card h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .subject-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== Method Cards ===== */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .method-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      box-shadow: var(--shadow);
+      border-left: 3px solid var(--accent);
+      transition: transform 0.3s ease;
+    }
+
+    .method-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .method-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .method-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .method-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 2px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Pricing Table ===== */
+    .tab-bar {
+      display: flex;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 4px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(26, 35, 50, 0.2);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .price-table {
+      width: 100%;
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border-collapse: collapse;
+    }
+
+    .price-table thead th {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .price-table thead th:first-child {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .price-table tbody td {
+      padding: 16px;
+      text-align: center;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-table tbody td:first-child {
+      text-align: left;
+      padding-left: 20px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .price-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price-table tbody tr:nth-child(even) {
+      background: #fdfcf9;
+    }
+
+    .price-value {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .price-unit {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      font-family: var(--font-sans);
+    }
+
+    /* ===== Plan Cards ===== */
+    .plan-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .plan-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .plan-card.recommended {
+      border: 2px solid var(--accent);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 16px;
+      border-radius: 0 0 0 12px;
+    }
+
+    .plan-card h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+
+    .plan-card .plan-price {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 8px 0;
+    }
+
+    .plan-card .plan-price .plan-discount {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+
+    .plan-card p,
+    .plan-card li {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .plan-card ul li::before {
+      content: '·';
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    /* ===== Notice Box ===== */
+    .notice {
+      background: var(--accent-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #8a6d3b;
+      line-height: 1.8;
+    }
+
+    .notice strong {
+      color: #6d5428;
+    }
+
+    /* ===== Group & Referral ===== */
+    .info-block {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+
+    .info-block h4 {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-block h4 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .info-block p,
+    .info-block li {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .info-block ul {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    .info-block ul li {
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .info-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .example-box {
+      background: #f7f3ee;
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      border: 1px dashed var(--border);
+    }
+
+    .example-box strong {
+      color: var(--primary);
+    }
+
+    /* ===== Referral Tiers ===== */
+    .referral-tier {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .referral-tier:last-child {
+      border-bottom: none;
+    }
+
+    .tier-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: var(--font-serif);
+    }
+
+    .tier-content h4 {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .tier-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== QR Code Section ===== */
+    .qr-section {
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, #f0ebe3 100%);
+    }
+
+    .qr-box {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-lg);
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .qr-input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .qr-input-group input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .qr-input-group input:focus {
+      border-color: var(--accent);
+    }
+
+    .btn-generate {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .btn-generate:hover {
+      background: var(--primary-mid);
+    }
+
+    #qrcode-display {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      min-height: 0;
+    }
+
+    #qrcode-display img {
+      border-radius: 8px;
+    }
+
+    .btn-download {
+      border: 2px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 28px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: none;
+    }
+
+    .btn-download:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 48px 24px 40px;
+      background: var(--primary);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+    }
+
+    .footer-contact {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin: 20px auto;
+      border-radius: 1px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 540px) {
+      .hero {
+        padding: 64px 20px 56px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+        letter-spacing: 4px;
+      }
+
+      .section {
+        padding: 44px 0;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .subject-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .subject-card {
+        padding: 20px 10px 18px;
+      }
+
+      .subject-symbol {
+        font-size: 26px;
+      }
+
+      .subject-card h3 {
+        font-size: 15px;
+      }
+
+      .subject-card p {
+        font-size: 11px;
+      }
+
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-table thead th,
+      .price-table tbody td {
+        padding: 12px 10px;
+        font-size: 12px;
+      }
+
+      .price-table thead th:first-child,
+      .price-table tbody td:first-child {
+        padding-left: 14px;
+      }
+
+      .price-value {
+        font-size: 16px;
+      }
+
+      .plan-card .plan-price {
+        font-size: 22px;
+      }
+
+      .qr-input-group {
+        flex-direction: column;
+      }
+
+      .container {
+        padding: 0 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== Hero ========== -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">2026 暑期招生</span>
+      <h1>暑期招生计划</h1>
+      <p class="hero-sub">数 学 · 物 理 · 化 学</p>
+      <p class="hero-desc">专注理科辅导，一对一 &amp; 小班精品教学，因材施教，高效提分</p>
+    </div>
+  </section>
+
+  <!-- ========== 教授科目 ========== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title fade-in">教授科目</h2>
+      <p class="section-sub fade-in">覆盖小学至高中全阶段理科课程</p>
+      <div class="subject-grid">
+        <div class="subject-card fade-in">
+          <span class="subject-symbol">π</span>
+          <h3>数学</h3>
+          <p>小学 / 初中 / 高中<br>全阶段数学辅导</p>
+        </div>
+        <div class="subject-card fade-in">
+          <span class="subject-symbol">F</span>
+          <h3>物理</h3>
+          <p>初中 / 高中<br>力学电学等重难点突破</p>
+        </div>
+        <div class="subject-card fade-in">
+          <span class="subject-symbol">Δ</span>
+          <h3>化学</h3>
+          <p>初中 / 高中<br>夯实基础，实验思维</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 教授方式 ========== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title fade-in">授课方式</h2>
+      <p class="section-sub fade-in">灵活选择，找到最适合的学习节奏</p>
+      <div class="method-grid">
+        <div class="method-card fade-in">
+          <span class="method-tag">精品一对一</span>
+          <h3>一对一辅导</h3>
+          <p>完全定制化教学方案，全程关注学生个体进度，针对性解决薄弱环节，提分效率最高。</p>
+        </div>
+        <div class="method-card fade-in">
+          <span class="method-tag">互动小班课</span>
+          <h3>小班课</h3>
+          <p>一对二 / 一对三小班授课，兼顾互动性与关注度，同学间互相激励，性价比更优。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 收费标准 ========== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title fade-in">收费标准</h2>
+      <p class="section-sub fade-in">透明定价，按课时收费</p>
+
+      <div class="tab-bar fade-in">
+        <button class="tab-btn active" onclick="switchTab('middle')">小学 / 初中</button>
+        <button class="tab-btn" onclick="switchTab('high')">高中</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-middle">
+        <table class="price-table fade-in">
+          <thead>
+            <tr>
+              <th>授课方式</th>
+              <th>课时费</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>一对一辅导</td>
+              <td><span class="price-value">400</span><span class="price-unit"> 元/节</span></td>
+            </tr>
+            <tr>
+              <td>一对二辅导</td>
+              <td><span class="price-value">320</span><span class="price-unit"> 元/节</span></td>
+            </tr>
+            <tr>
+              <td>一对三及以上</td>
+              <td><span class="price-value">240</span><span class="price-unit"> 元/节</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-panel" id="panel-high">
+        <table class="price-table fade-in">
+          <thead>
+            <tr>
+              <th>授课方式</th>
+              <th>课时费</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>一对一辅导</td>
+              <td><span class="price-value">500</span><span class="price-unit"> 元/节</span></td>
+            </tr>
+            <tr>
+              <td>一对二辅导</td>
+              <td><span class="price-value">400</span><span class="price-unit"> 元/节</span></td>
+            </tr>
+            <tr>
+              <td>一对三及以上</td>
+              <td><span class="price-value">300</span><span class="price-unit"> 元/节</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 报课方案 ========== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title fade-in">报课方案</h2>
+      <p class="section-sub fade-in">多报多优惠，课时越多越划算</p>
+
+      <div class="plan-cards">
+        <div class="plan-card fade-in">
+          <h4>基础方案</h4>
+          <p style="font-size:14px; color:var(--primary); font-weight:500;">一次性报名 &lt; 50 节</p>
+          <p style="margin-top:6px;">按标准课时费原价收费</p>
+        </div>
+
+        <div class="plan-card fade-in">
+          <h4>进阶方案</h4>
+          <p style="font-size:14px; color:var(--primary); font-weight:500;">一次性报名 ≥ 50 节</p>
+          <p style="margin-top:6px;">享受 <strong style="color:var(--accent); font-size:18px;">9 折</strong> 优惠</p>
+        </div>
+
+        <div class="plan-card recommended fade-in">
+          <span class="plan-badge">超值推荐</span>
+          <h4>冲刺方案</h4>
+          <p style="font-size:14px; color:var(--primary); font-weight:500;">一次性报名 ≥ 100 节</p>
+          <p style="margin-top:6px;">享受 <strong style="color:var(--accent); font-size:18px;">9 折</strong> 优惠，同时 <strong
+              style="color:var(--accent);">附赠 9 节课</strong></p>
+        </div>
+      </div>
+
+      <div class="notice fade-in">
+        <strong>附赠课说明：</strong>先上付费课，再上附赠课。附赠课无经济价值，不予退费。
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 多人团购方案 ========== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title fade-in">多人团购方案</h2>
+      <p class="section-sub fade-in">邀请好友一起报课，享受更多优惠</p>
+
+      <div class="info-block fade-in">
+        <h4><span class="num">1</span> 绑定团购</h4>
+        <p>多人绑定团购，每次续费都一起缴费，<strong style="color:var(--primary);">缴费时间无限制</strong>。</p>
+        <div class="example-box">
+          <strong>举例：</strong>A 家长和 B 家长选择绑定团购，则 A 家长用完课时后，可继续享受团购折扣价进行提前授课，等 B 家长用完课时后再一起缴费。
+        </div>
+      </div>
+
+      <div class="info-block fade-in">
+        <h4><span class="num">2</span> 普通团购</h4>
+        <p>多人团购，团购缴费时间限制为所有课时（正课及附赠课时）全部结束后 <strong style="color:var(--accent);">4 节课内</strong> 缴费。</p>
+        <div class="example-box">
+          <strong>举例：</strong>A 家长和 B 家长选择普通团购，则 A 家长提前用完后，必须在 4 节课内单独或再拉其他家长进行缴费。超出 4 节课后若不缴费，则按原价 400 元/节进行收费。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 转介绍福利 ========== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title fade-in">转介绍福利</h2>
+      <p class="section-sub fade-in">推荐好友报课，双方均享好礼</p>
+
+      <div class="info-block fade-in">
+        <div class="referral-tier">
+          <div class="tier-icon">1</div>
+          <div class="tier-content">
+            <h4>推荐成功（报课 ≥ 20 节）</h4>
+            <p>
+              报名单科 → 附赠家长 <strong style="color:var(--accent);">1 节</strong>对应课 + 奖励学生 <strong
+                style="color:var(--accent);">300 元</strong>等值自选礼物<br>
+              报名多科 → 附赠家长自选 <strong style="color:var(--accent);">2 节课</strong> + 奖励学生 <strong
+                style="color:var(--accent);">500 元</strong>等值自选礼物
+            </p>
+          </div>
+        </div>
+
+        <div class="referral-tier">
+          <div class="tier-icon">2</div>
+          <div class="tier-content">
+            <h4>推荐报课 &lt; 20 节</h4>
+            <p>每推荐一人，即奖励学生 <strong style="color:var(--accent);">300 元</strong>等值自选礼物</p>
+          </div>
+        </div>
+
+        <div class="referral-tier">
+          <div class="tier-icon">3</div>
+          <div class="tier-content">
+            <h4>推荐 5 人以上（不含 5 人）</h4>
+            <p>额外附赠 <strong style="color:var(--accent);">30 节课</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-block fade-in">
+        <h4><span class="num">⏰</span> 转介绍费用到账时间</h4>
+        <ul>
+          <li>被推荐家长选择 <strong>寒暑假</strong> 或 <strong>初三冲刺方案</strong> → 报课成功缴费当天通过微信发送</li>
+          <li>被推荐家长选择 <strong>常规月方案</strong> → 第一个月结算费用当天通过微信发送</li>
+        </ul>
+      </div>
+
+      <div class="notice fade-in">
+        <strong>附赠课说明：</strong>先上付费课，再上附赠课。附赠课无经济价值，不予退费。
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 生成二维码 ========== -->
+  <section class="section qr-section" id="qr">
+    <div class="container">
+      <h2 class="section-title fade-in" style="display:block; text-align:center;">生成招生二维码</h2>
+      <p class="section-sub fade-in" style="text-align:center;">部署页面后，输入网址即可生成海报二维码</p>
+
+      <div class="qr-box fade-in">
+        <div class="qr-input-group">
+          <input type="text" id="url-input" placeholder="请输入此页面的网址">
+          <button class="btn-generate" onclick="generateQR()">生成二维码</button>
+        </div>
+        <div id="qrcode-display"></div>
+        <button class="btn-download" id="btn-download" onclick="downloadQR()">下载二维码</button>
+        <p style="font-size:12px; color:var(--text-light); margin-top:16px;">
+          将此页面托管到 GitHub Pages / Netlify / Vercel 等平台后，<br>输入页面地址即可生成二维码用于招生海报。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-contact">预约试听 / 咨询详情</p>
+      <p>请添加微信：<strong style="color:#fff;">________</strong>（请替换为您的微信号）</p>
+      <div class="footer-divider"></div>
+      <p style="font-size:12px;">专注理科辅导 · 因材施教 · 高效提分</p>
+    </div>
+  </footer>
+
+  <!-- ========== Scripts ========== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    /* --- Scroll Animations --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    /* --- Tab Switching --- */
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('panel-' + tab).classList.add('active');
+    }
+
+    /* --- QR Code --- */
+    let qr = null;
+    const urlInput = document.getElementById('url-input');
+
+    // Pre-fill with current URL
+    urlInput.value = window.location.href;
+
+    function generateQR() {
+      const url = urlInput.value.trim();
+      if (!url) { alert('请输入页面网址'); return; }
+
+      const container = document.getElementById('qrcode-display');
+      container.innerHTML = '';
+
+      qr = new QRCode(container, {
+        text: url,
+        width: 220,
+        height: 220,
+        colorDark: '#1a2332',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      document.getElementById('btn-download').style.display = 'inline-block';
+    }
+
+    function downloadQR() {
+      const canvas = document.querySelector('#qrcode-display canvas');
+      if (!canvas) return;
+
+      // Add white padding for print
+      const padding = 40;
+      const c = document.createElement('canvas');
+      c.width = canvas.width + padding * 2;
+      c.height = canvas.height + padding * 2;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(canvas, padding, padding);
+
+      const link = document.createElement('a');
+      link.download = '招生二维码.png';
+      link.href = c.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+
+</html>
