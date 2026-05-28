@@ -597,89 +597,196 @@
       line-height: 1.7;
     }
 
-    /* ===== QR Code Section ===== */
-    .qr-section {
-      text-align: center;
-      background: linear-gradient(180deg, var(--bg) 0%, #f0ebe3 100%);
+    /* ===== Photo Gallery ===== */
+    .teacher-block {
+      margin-bottom: 32px;
     }
 
-    .qr-box {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      box-shadow: var(--shadow-lg);
-      max-width: 380px;
-      margin: 0 auto;
+    .teacher-block:last-of-type {
+      margin-bottom: 0;
     }
 
-    .qr-input-group {
+    .teacher-header {
       display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .qr-input-group input {
-      flex: 1;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      font-size: 13px;
-      font-family: var(--font-sans);
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .qr-input-group input:focus {
-      border-color: var(--accent);
-    }
-
-    .btn-generate {
-      border: none;
-      background: var(--primary);
-      color: #fff;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 12px 20px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: background 0.3s;
-      white-space: nowrap;
-    }
-
-    .btn-generate:hover {
-      background: var(--primary-mid);
-    }
-
-    #qrcode-display {
-      display: flex;
+    .teacher-symbol {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      margin: 20px 0;
-      min-height: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      color: var(--accent-light);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
-    #qrcode-display img {
-      border-radius: 8px;
+    .teacher-name {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary);
     }
 
-    .btn-download {
-      border: 2px solid var(--accent);
-      background: transparent;
-      color: var(--accent);
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 10px 28px;
-      border-radius: var(--radius-sm);
+    .teacher-photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #f0ebe3, #e8e2d8);
+      box-shadow: var(--shadow);
       cursor: pointer;
-      transition: all 0.3s;
-      display: none;
     }
 
-    .btn-download:hover {
-      background: var(--accent);
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .photo-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 12px 10px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
       color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .photo-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #f5f0e8, #ece5da);
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .photo-placeholder .ph-icon {
+      font-size: 28px;
+      opacity: 0.5;
+    }
+
+    .photo-placeholder .ph-text {
+      font-size: 11px;
+      color: #b5aa9d;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .atmosphere-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 40px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .atmosphere-title::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .atmosphere-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .atmosphere-card {
+      aspect-ratio: 3 / 2;
+    }
+
+    /* ===== Lightbox ===== */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      cursor: zoom-out;
+    }
+
+    .lightbox-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.5);
+      transform: scale(0.92);
+      transition: transform 0.35s ease;
+      cursor: default;
+    }
+
+    .lightbox-overlay.active img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
 
     /* ===== Footer ===== */
@@ -704,6 +811,53 @@
       background: var(--accent);
       margin: 20px auto;
       border-radius: 1px;
+    }
+
+    .footer-qr-section {
+      margin: 24px auto 0;
+      max-width: 460px;
+    }
+
+    .footer-qr-section>p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .footer-qr-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-qr-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-qr-img {
+      width: 160px;
+      height: 160px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer-qr-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .footer-qr-name {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      font-weight: 500;
     }
 
     /* ===== Responsive ===== */
@@ -773,12 +927,55 @@
         font-size: 22px;
       }
 
-      .qr-input-group {
-        flex-direction: column;
-      }
-
       .container {
         padding: 0 18px;
+      }
+
+      .teacher-photos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .teacher-symbol {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+      }
+
+      .teacher-name {
+        font-size: 15px;
+      }
+
+      .photo-label {
+        font-size: 10px;
+        padding: 20px 6px 8px;
+        letter-spacing: 0.5px;
+      }
+
+      .atmosphere-title {
+        font-size: 16px;
+        margin: 32px 0 12px;
+      }
+
+      .atmosphere-grid {
+        gap: 8px;
+      }
+
+      .photo-placeholder .ph-icon {
+        font-size: 22px;
+      }
+
+      .photo-placeholder .ph-text {
+        font-size: 10px;
+      }
+
+      .footer-qr-img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .footer-qr-row {
+        gap: 20px;
       }
     }
   </style>
@@ -846,12 +1043,10 @@
     <div class="container">
       <h2 class="section-title fade-in">收费标准</h2>
       <p class="section-sub fade-in">透明定价，按课时收费</p>
-
       <div class="tab-bar fade-in">
         <button class="tab-btn active" onclick="switchTab('middle')">小学 / 初中</button>
         <button class="tab-btn" onclick="switchTab('high')">高中</button>
       </div>
-
       <div class="tab-panel active" id="panel-middle">
         <table class="price-table fade-in">
           <thead>
@@ -876,7 +1071,6 @@
           </tbody>
         </table>
       </div>
-
       <div class="tab-panel" id="panel-high">
         <table class="price-table fade-in">
           <thead>
@@ -909,20 +1103,17 @@
     <div class="container">
       <h2 class="section-title fade-in">报课方案</h2>
       <p class="section-sub fade-in">多报多优惠，课时越多越划算</p>
-
       <div class="plan-cards">
         <div class="plan-card fade-in">
           <h4>基础方案</h4>
           <p style="font-size:14px; color:var(--primary); font-weight:500;">一次性报名 &lt; 50 节</p>
           <p style="margin-top:6px;">按标准课时费原价收费</p>
         </div>
-
         <div class="plan-card fade-in">
           <h4>进阶方案</h4>
           <p style="font-size:14px; color:var(--primary); font-weight:500;">一次性报名 ≥ 50 节</p>
           <p style="margin-top:6px;">享受 <strong style="color:var(--accent); font-size:18px;">9 折</strong> 优惠</p>
         </div>
-
         <div class="plan-card recommended fade-in">
           <span class="plan-badge">超值推荐</span>
           <h4>冲刺方案</h4>
@@ -931,7 +1122,6 @@
               style="color:var(--accent);">附赠 9 节课</strong></p>
         </div>
       </div>
-
       <div class="notice fade-in">
         <strong>附赠课说明：</strong>先上付费课，再上附赠课。附赠课无经济价值，不予退费。
       </div>
@@ -943,7 +1133,6 @@
     <div class="container">
       <h2 class="section-title fade-in">多人团购方案</h2>
       <p class="section-sub fade-in">邀请好友一起报课，享受更多优惠</p>
-
       <div class="info-block fade-in">
         <h4><span class="num">1</span> 绑定团购</h4>
         <p>多人绑定团购，每次续费都一起缴费，<strong style="color:var(--primary);">缴费时间无限制</strong>。</p>
@@ -951,7 +1140,6 @@
           <strong>举例：</strong>A 家长和 B 家长选择绑定团购，则 A 家长用完课时后，可继续享受团购折扣价进行提前授课，等 B 家长用完课时后再一起缴费。
         </div>
       </div>
-
       <div class="info-block fade-in">
         <h4><span class="num">2</span> 普通团购</h4>
         <p>多人团购，团购缴费时间限制为所有课时（正课及附赠课时）全部结束后 <strong style="color:var(--accent);">4 节课内</strong> 缴费。</p>
@@ -967,7 +1155,6 @@
     <div class="container">
       <h2 class="section-title fade-in">转介绍福利</h2>
       <p class="section-sub fade-in">推荐好友报课，双方均享好礼</p>
-
       <div class="info-block fade-in">
         <div class="referral-tier">
           <div class="tier-icon">1</div>
@@ -981,7 +1168,6 @@
             </p>
           </div>
         </div>
-
         <div class="referral-tier">
           <div class="tier-icon">2</div>
           <div class="tier-content">
@@ -989,7 +1175,6 @@
             <p>每推荐一人，即奖励学生 <strong style="color:var(--accent);">300 元</strong>等值自选礼物</p>
           </div>
         </div>
-
         <div class="referral-tier">
           <div class="tier-icon">3</div>
           <div class="tier-content">
@@ -998,7 +1183,6 @@
           </div>
         </div>
       </div>
-
       <div class="info-block fade-in">
         <h4><span class="num">⏰</span> 转介绍费用到账时间</h4>
         <ul>
@@ -1006,29 +1190,96 @@
           <li>被推荐家长选择 <strong>常规月方案</strong> → 第一个月结算费用当天通过微信发送</li>
         </ul>
       </div>
-
       <div class="notice fade-in">
         <strong>附赠课说明：</strong>先上付费课，再上附赠课。附赠课无经济价值，不予退费。
       </div>
     </div>
   </section>
 
-  <!-- ========== 生成二维码 ========== -->
-  <section class="section qr-section" id="qr">
+  <!-- ========== 教学风采 ========== -->
+  <section class="section" style="padding-top:0;">
     <div class="container">
-      <h2 class="section-title fade-in" style="display:block; text-align:center;">生成招生二维码</h2>
-      <p class="section-sub fade-in" style="text-align:center;">部署页面后，输入网址即可生成海报二维码</p>
+      <h2 class="section-title fade-in">教学风采</h2>
+      <p class="section-sub fade-in">真实教学场景，见证每一步成长</p>
 
-      <div class="qr-box fade-in">
-        <div class="qr-input-group">
-          <input type="text" id="url-input" placeholder="请输入此页面的网址">
-          <button class="btn-generate" onclick="generateQR()">生成二维码</button>
+      <!-- 数学老师 -->
+      <div class="teacher-block fade-in">
+        <div class="teacher-header">
+          <span class="teacher-symbol">π</span>
+          <span class="teacher-name">数学</span>
         </div>
-        <div id="qrcode-display"></div>
-        <button class="btn-download" id="btn-download" onclick="downloadQR()">下载二维码</button>
-        <p style="font-size:12px; color:var(--text-light); margin-top:16px;">
-          将此页面托管到 GitHub Pages / Netlify / Vercel 等平台后，<br>输入页面地址即可生成二维码用于招生海报。
-        </p>
+        <div class="teacher-photos">
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/math-board.jpg" alt="数学 · 授课板书" loading="lazy">
+            <span class="photo-label">授课板书</span>
+          </div>
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/math-feedback.jpg" alt="数学 · 家长反馈" loading="lazy">
+            <span class="photo-label">家长反馈</span>
+          </div>
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/math-qa.jpg" alt="数学 · 课后答疑" loading="lazy">
+            <span class="photo-label">课后答疑</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 物理老师 -->
+      <div class="teacher-block fade-in">
+        <div class="teacher-header">
+          <span class="teacher-symbol">F</span>
+          <span class="teacher-name">物理</span>
+        </div>
+        <div class="teacher-photos">
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/physics-board.jpg" alt="物理 · 授课板书" loading="lazy">
+            <span class="photo-label">授课板书</span>
+          </div>
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/physics-feedback.jpg" alt="物理 · 家长反馈" loading="lazy">
+            <span class="photo-label">家长反馈</span>
+          </div>
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/physics-qa.jpg" alt="物理 · 课后答疑" loading="lazy">
+            <span class="photo-label">课后答疑</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 化学老师 -->
+      <div class="teacher-block fade-in">
+        <div class="teacher-header">
+          <span class="teacher-symbol">Δ</span>
+          <span class="teacher-name">化学</span>
+        </div>
+        <div class="teacher-photos">
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/chemistry-board.jpg" alt="化学 · 授课板书" loading="lazy">
+            <span class="photo-label">授课板书</span>
+          </div>
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/chemistry-feedback.jpg" alt="化学 · 家长反馈" loading="lazy">
+            <span class="photo-label">家长反馈</span>
+          </div>
+          <div class="photo-card" onclick="openLightbox(this)">
+            <img src="images/chemistry-qa.jpg" alt="化学 · 课后答疑" loading="lazy">
+            <span class="photo-label">课后答疑</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 师生互动 -->
+      <h3 class="atmosphere-title fade-in">师生互动</h3>
+      <div class="atmosphere-grid fade-in">
+        <div class="photo-card atmosphere-card" onclick="openLightbox(this)">
+          <img src="images/atmosphere-1.jpg" alt="师生互动" loading="lazy">
+        </div>
+        <div class="photo-card atmosphere-card" onclick="openLightbox(this)">
+          <img src="images/atmosphere-2.jpg" alt="师生互动" loading="lazy">
+        </div>
+        <div class="photo-card atmosphere-card" onclick="openLightbox(this)">
+          <img src="images/atmosphere-3.jpg" alt="师生互动" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -1037,14 +1288,39 @@
   <footer class="footer">
     <div class="container">
       <p class="footer-contact">预约试听 / 咨询详情</p>
-      <p>请添加微信：<strong style="color:#fff;">________</strong>（请替换为您的微信号）</p>
+      <p>长按或扫描下方老师微信二维码，添加好友即可咨询</p>
       <div class="footer-divider"></div>
+
+      <div class="footer-qr-section">
+        <p>请添加以下老师的微信：</p>
+        <div class="footer-qr-row">
+          <div class="footer-qr-item">
+            <div class="footer-qr-img">
+              <img src="images/wechat-lin.jpg" alt="林老师微信二维码">
+            </div>
+            <span class="footer-qr-name">林老师</span>
+          </div>
+          <div class="footer-qr-item">
+            <div class="footer-qr-img">
+              <img src="images/wechat-yan.jpg" alt="颜老师微信二维码">
+            </div>
+            <span class="footer-qr-name">颜老师</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider" style="margin-top:28px;"></div>
       <p style="font-size:12px;">专注理科辅导 · 因材施教 · 高效提分</p>
     </div>
   </footer>
 
+  <!-- ========== Lightbox ========== -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <img src="" alt="放大图片" id="lightbox-img">
+  </div>
+
   <!-- ========== Scripts ========== -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
     /* --- Scroll Animations --- */
     const observer = new IntersectionObserver((entries) => {
@@ -1065,51 +1341,43 @@
       document.getElementById('panel-' + tab).classList.add('active');
     }
 
-    /* --- QR Code --- */
-    let qr = null;
-    const urlInput = document.getElementById('url-input');
+    /* --- Lightbox --- */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-    // Pre-fill with current URL
-    urlInput.value = window.location.href;
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      if (!img) return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-    function generateQR() {
-      const url = urlInput.value.trim();
-      if (!url) { alert('请输入页面网址'); return; }
+    function closeLightbox(e) {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
 
-      const container = document.getElementById('qrcode-display');
-      container.innerHTML = '';
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
 
-      qr = new QRCode(container, {
-        text: url,
-        width: 220,
-        height: 220,
-        colorDark: '#1a2332',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.H
+    /* --- Photo Placeholder Fallback --- */
+    document.querySelectorAll('.photo-card img').forEach(img => {
+      img.addEventListener('error', function () {
+        this.style.display = 'none';
+        const ph = document.createElement('div');
+        ph.className = 'photo-placeholder';
+        ph.innerHTML = '<span class="ph-icon">📷</span><span class="ph-text">' + this.alt + '</span>';
+        this.parentElement.insertBefore(ph, this);
       });
-
-      document.getElementById('btn-download').style.display = 'inline-block';
-    }
-
-    function downloadQR() {
-      const canvas = document.querySelector('#qrcode-display canvas');
-      if (!canvas) return;
-
-      // Add white padding for print
-      const padding = 40;
-      const c = document.createElement('canvas');
-      c.width = canvas.width + padding * 2;
-      c.height = canvas.height + padding * 2;
-      const ctx = c.getContext('2d');
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, c.width, c.height);
-      ctx.drawImage(canvas, padding, padding);
-
-      const link = document.createElement('a');
-      link.download = '招生二维码.png';
-      link.href = c.toDataURL('image/png');
-      link.click();
-    }
+    });
   </script>
 </body>
 
