@@ -860,8 +860,137 @@
       font-weight: 500;
     }
 
+    /* ===== Teacher Profile Cards ===== */
+    .teacher-profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .teacher-profile-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .teacher-profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .teacher-profile-photo {
+      position: relative;
+      height: 480px;
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      background-color: #e8e2d8;
+    }
+
+    /* 四周渐变融合 — 上下 */
+    .teacher-profile-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, var(--surface) 0%, transparent 22%),
+        linear-gradient(to top, var(--surface) 0%, transparent 22%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 四周渐变融合 — 左右 */
+    .teacher-profile-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, var(--surface) 0%, transparent 16%),
+        linear-gradient(to left, var(--surface) 0%, transparent 16%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 右侧竖排名言警句 */
+    .teacher-quote-vertical {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: rgba(225, 225, 225, 0.92);
+      letter-spacing: 6px;
+      line-height: 2;
+      z-index: 2;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+      user-select: none;
+    }
+
+    /* 下方个人介绍区域 */
+    .teacher-profile-intro {
+      padding: 22px 24px 28px;
+    }
+
+    .teacher-profile-intro h3 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .teacher-subject-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 3px 12px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .teacher-profile-intro .intro-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 540px) {
+
+      /* Teacher Profile 响应式 */
+      .teacher-profile-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .teacher-profile-photo {
+        height: 320px;
+      }
+
+      .teacher-quote-vertical {
+        font-size: 15px;
+        right: 14px;
+        letter-spacing: 4px;
+      }
+
+      .teacher-profile-intro {
+        padding: 18px 20px 24px;
+      }
+
+      .teacher-profile-intro h3 {
+        font-size: 18px;
+      }
+
       .hero {
         padding: 64px 20px 56px;
       }
@@ -1195,6 +1324,48 @@
       </div>
     </div>
   </section>
+
+  <!-- ========== 名师风采 ========== -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title fade-in">名师风采</h2>
+      <p class="section-sub fade-in">因材施教，用心育人</p>
+      <div class="teacher-profile-grid">
+
+        <!-- 徐老师 -->
+        <div class="teacher-profile-card fade-in">
+          <div class="teacher-profile-photo" style="background-image: url('images/xu-teacher-portrait.jpg')">
+            <p class="teacher-quote-vertical">以兴启门，以思提分</p>
+          </div>
+          <div class="teacher-profile-intro">
+            <h3>徐老师</h3>
+            <span class="teacher-subject-tag">物理</span>
+            <p class="intro-text">
+              <!-- 请替换为徐老师的真实个人介绍 -->
+              徐老师，23年南京工业大学毕业，毕业前已开始接触初中物理教育领域，毕业后深耕初中物理教育行业三年，有毕业班复习经验。对于物理教育秉持“兴趣第一、理解第二”理念深入和学生沟通、擅长发掘学生兴趣、拓宽学生思考思维、培养做题思路，深谙南京中考出题比例、题型、拿分点。
+            </p>
+          </div>
+        </div>
+
+        <!-- 颜老师 -->
+        <div class="teacher-profile-card fade-in">
+          <div class="teacher-profile-photo" style="background-image: url('images/yan-teacher-portrait.jpg')">
+            <p class="teacher-quote-vertical">立身当以立学为先</p>
+          </div>
+          <div class="teacher-profile-intro">
+            <h3>颜老师</h3>
+            <span class="teacher-subject-tag">数学</span>
+            <p class="intro-text">
+              <!-- 请替换为颜老师的真实个人介绍 -->
+              颜老师，21年南京工业大学毕业，后考入南京师范大学硕士研究生，23年毕业持续深耕数学教育领域，具备完善的系统化教学培养经历。秉持“兴趣是最好的老师”理念深入和学生沟通，有数十位数学特长生、小奥提优及3年中考带班的教育经验。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 
   <!-- ========== 教学风采 ========== -->
   <section class="section" style="padding-top:0;">
